@@ -9,6 +9,5 @@ base_url = folder.format('{}')
 print(base_url)
 
 for td in cells:
-    links = (td.a['href'])
-    download_url = (base_url+links)
-    print(download_url)
+    books = (td.a['href'])
+  
