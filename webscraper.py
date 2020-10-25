@@ -17,6 +17,6 @@ for td in cells:
     
     with open('C:/Users/Tyler/Documents/5e/Core/'+ book_name, 'wb') as f :
         f.write(d.content)
-        print('downloading' + book_name)
+        print('downloading ' + book_name)
 
 print('sleight of hand check successful')
