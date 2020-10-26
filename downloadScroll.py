@@ -17,16 +17,15 @@ def downloadScroll(download_url, scroll_name):
     save_directory = 'C:/Users/Tyler/Documents/'+joined_directory
     save_filepath = 'C:/Users/Tyler/Documents/'+joined_filepath
 
-    #check_folder = os.path.isdir(save_directory)
-    #if not check_folder:
-        #os.makedirs(save_directory)
+    check_folder = os.path.isdir(save_directory)
+    if not check_folder:
+        os.makedirs(save_directory)
     
-    #d = requests.get(download_url, stream=True)
+    d = requests.get(download_url, stream=True)
     
-    #with open(save_filepath, 'wb') as f :
-        #f.write(d.content)
+    with open(save_filepath, 'wb') as f :
+        f.write(d.content)
     
-    #sleep(2)
+    sleep(2)
 
-#downloadScroll(download_url, scroll_name)
 print('sleight of hand check successful')
