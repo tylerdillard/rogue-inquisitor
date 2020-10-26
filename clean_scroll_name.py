@@ -1,3 +1,4 @@
+#remove forbidden characters from filename
 def clean(scroll_name):
 
     invalid = '<>:"/\|?*'

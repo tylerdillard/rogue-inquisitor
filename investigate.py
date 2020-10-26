@@ -8,17 +8,20 @@ from downloadScroll import downloadScroll
 
 def investigate(archive_url):
     
+    #get relevant table cell content ignoring /Parent Directory
     r = requests.get(archive_url, timeout=5)
     soup = BeautifulSoup(r.content, 'html.parser')
     cells = soup.find_all('td', {'class': 'link'})[1:]
 
     for td in cells:
+        #find links and link names
         scroll_path = (td.a['href'])
         scroll_name = (td.text)
         download_url = urllib.parse.urljoin(archive_url, scroll_path)
         
-        if scroll_path[-1] == '/':
-            print('investigating '+ scroll_name)
+        if scroll_path[-1] == '/': 
+            #identify child folders, then continue investigating down folder rabbit hole
+            print('investigating '+ scroll_name)            
             investigate(download_url)
             sleep(2)
         
