@@ -10,13 +10,13 @@ soup = BeautifulSoup(r.content, 'html.parser')
 cells = soup.find_all('td', {'class': 'link'})[1:]
 
 for td in cells:
-    book_path = (td.a['href'])
-    book_name = (td.text)
-    download_url = urllib.parse.urljoin(archive_url, book_path)
+    scroll_path = (td.a['href'])
+    scroll_name = (td.text)
+    download_url = urllib.parse.urljoin(archive_url, scroll_path)
     d = requests.get(download_url, stream=True)
     
-    with open('C:/Users/Tyler/Documents/5e/Core/'+ book_name, 'wb') as f :
+    with open('C:/Users/Tyler/Documents/5e/Core/'+ scroll_name, 'wb') as f :
         f.write(d.content)
-        print('downloading ' + book_name)
-
+        print('downloading ' + scroll_name)
+        
 print('sleight of hand check successful')
