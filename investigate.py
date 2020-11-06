@@ -23,7 +23,6 @@ def investigate(archive_url):
             #identify child folders, then continue investigating down folder rabbit hole
             print('investigating '+ scroll_name)            
             investigate(download_url)
-            sleep(2)
         
         else:
             downloadScroll(download_url, scroll_name)
